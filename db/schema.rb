@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_06_193820) do
+ActiveRecord::Schema.define(version: 2019_07_06_193049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(version: 2019_07_06_193820) do
     t.string "precip"
     t.string "moon"
     t.string "clouds"
+    t.integer "note_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "note_id"
   end
 
 end

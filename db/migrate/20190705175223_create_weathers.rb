@@ -5,6 +5,7 @@ class CreateWeathers < ActiveRecord::Migration[5.2]
       t.string :precip
       t.string :moon
       t.string :clouds
+      t.integer :note_id
 
       t.timestamps
     end

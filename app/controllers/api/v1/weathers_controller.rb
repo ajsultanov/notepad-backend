@@ -1,4 +1,4 @@
-class WeathersController < ApplicationController
+class Api::V1::WeathersController < ApplicationController
 
   def index
     @weathers = Weather.all
