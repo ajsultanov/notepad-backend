@@ -7,6 +7,7 @@ class CreateNotes < ActiveRecord::Migration[5.2]
       t.string :season
       t.float :lat, :precision => 7, :scale => 4
       t.float :lng, :precision => 7, :scale => 4
+      t.integer :user_id
 
       t.timestamps
     end
