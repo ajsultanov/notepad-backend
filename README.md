@@ -18,12 +18,12 @@ Things you may want to cover:
 
 Liquid precipitation rate needed???
 
-## Requests
+## Requests:
 key (required)
 latitutde (required)
 longitude (required)
 exclude=[currently,minutely,hourly,daily,alerts,flags]
-  <- choose which to exclude, probably all except for currently
+  <- choose which to exclude, probably all except for "currently"
 
 ## default icons:
 1. clear-day,
@@ -43,5 +43,5 @@ X-Response-Time       - The server-side response time of the request.
 
 **always** check for presence of data before using it
 
-## uh...?
+## uh...hm..?
 The Forecast Data API supports HTTP compression. We heartily recommend using it, as it will make responses much smaller over the wire. To enable it, simply add an Accept-Encoding: gzip header to your request. (Most HTTP client libraries wrap this functionality for you, please consult your library’s documentation for details.)
