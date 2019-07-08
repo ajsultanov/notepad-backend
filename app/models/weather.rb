@@ -1,17 +1,19 @@
 class Weather < ApplicationRecord
-   belongs_to :note
+  belongs_to :note
 
-   ds_url = "https://api.darksky.net/forecast/"
-   secret_key = ENV['SECRET_KEY']
+  ds_url = "https://api.darksky.net/forecast/"
+  secret_key = ENV['SECRET_KEY']
 
-   #data =  RestClient.get("#{ds_url}#{secret_key}/#{lat},#{lng}?exclude=minutely,hourly,daily,alerts")
+  def get_weather
+    data =  RestClient.get("#{ds_url}#{secret_key}/#{lat},#{lng}?exclude=minutely,hourly,daily,alerts")
+    data
+  end
 
+  # RestClient.get('http://example.com/resource', headers={})
 
-   # RestClient.get('http://example.com/resource', headers={})
-
-   # def get_weather
-   #  response = HTTParty.get('http://api.openweathermap.org/data/2.5/weather?zip=' + @zip + ',us&appid=[YOUR API KEY HERE]')
-   #  response["main"]["humidity"]
+  # def get_weather
+  #  response = HTTParty.get('http://api.openweathermap.org/data/2.5/weather?zip=' + @zip + ',us&appid=[YOUR API KEY HERE]')
+  #  response["main"]["humidity"]
   # end
 
   # headers: {api_key: ENV['SECRET_KEY']} ?
@@ -31,18 +33,18 @@ end
 # end
 
 # class ModelForMyApi < ActiveRecord::Base
-#     require 'rest_client'
+#   require 'rest_client'
 #
-#     @url
+#   @url
 #
-#     def self.getData
-#         response = RestClient(@url, { :content_type => :json, "Api-Key" => "put your API key here" }
-#     end
+#   def self.getData
+#     response = RestClient(@url, { :content_type => :json, "Api-Key" => "put your API key here" }
+#   end
 #
-#     def self.retrieve_results(myParameter)
-#          @url = "myApiUrl.com/stuff/?putYourParamNameHere=#{myParameter}"
-#         ModelForMyApi.getData
-#     end
+#   def self.retrieve_results(myParameter)
+#      @url = "myApiUrl.com/stuff/?putYourParamNameHere=#{myParameter}"
+#     ModelForMyApi.getData
+#   end
 # end
 
 
