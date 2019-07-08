@@ -1,6 +1,5 @@
 class NoteSerializer < ActiveModel::Serializer
-  attributes :id, :content, :title, :time, :season, :lat, :lng
+  attributes :id, :content, :title
 
   belongs_to :user
-  has_one :weather
 end

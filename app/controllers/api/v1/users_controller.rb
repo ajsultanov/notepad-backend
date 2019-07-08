@@ -12,17 +12,21 @@ class Api::V1::UsersController < ApplicationController
 
     @user.username = params[:username]
     @user.password = params[:password]
+    @user.lat = params[:lat]
+    @user.lng = params[:lng]
 
     ds_url = "https://api.darksky.net/forecast/"
     secret_key = ENV['SECRET_KEY']
 
-    response =  RestClient.get("#{ds_url}#{secret_key}/#{lat},#{lng}?exclude=minutely,hourly,daily,alerts")
+    resp = RestClient.get("#{ds_url}#{secret_key}/#{@user.lat},#{@user.lng}?exclude=minutely,hourly,daily,alerts")
 
-    @user.create_weather({temp: response.temperature, icon: response.icon, status: response.status})
+    if @user.create_weather({:temp => resp.currently.temperature, :icon => resp.currently.icon, :status => resp.currently.status})
+      puts "yay saved"
+    else
+      puts "oh no"
+    end
 
-#    @note.weather = create_weather(attributes = {})...
-
-    if @user = User.save
+    if @user.save
       render json: @user, status: :accepted
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
