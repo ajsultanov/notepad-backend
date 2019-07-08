@@ -7,9 +7,35 @@ class Api::V1::NotesController < ApplicationController
   end
 
   def create
+#    byebug
+
+    @note = Note.new
+    @note.title = note_params[:title]
+    @note.content = note_params[:content]
+    @note.time = note_params[:time]
+    @note.season = note_params[:season]
+    @note.user_id = note_params[:user_id]
+    @note.lat = note_params[:lat]
+    @note.lng = note_params[:lng]
+
+#    @note.weather = create_weather(attributes = {})...
+
+    if @note.save
+      render json: @note, status: :accepted
+    else
+      render json: { errors: @note.errors.full_messages }, status: :unprocessible_entity
+    end
   end
 
   def update
+    @note.update(note_params)
+    if @note.save
+      render json: @note,
+      status: :accepted
+    else
+      render json: { errors: @note.errors.full_messages },
+      status: :unprocessible_entity
+    end
   end
 
   def destroy

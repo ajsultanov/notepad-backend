@@ -79,3 +79,12 @@ if ("geolocation" in navigator) {
 } else {
   /* geolocation IS NOT available */
 }
+
+## auth
+
+class User < ApplicationRecord
+  has_secure_password
+  validates :username, uniqueness: { case_sensitive: false }
+end
+
+[link](https://learn.co/tracks/module-4-web-development-immersive-2-1/auth/jwt-auth-in-rails/jwt-auth-rails)
