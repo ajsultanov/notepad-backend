@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_07_06_193049) do
 
   create_table "weathers", force: :cascade do |t|
     t.integer "temp"
-    t.string "status"
+    t.string "summary"
     t.string "icon"
     t.integer "user_id"
     t.datetime "created_at", null: false

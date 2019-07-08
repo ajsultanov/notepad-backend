@@ -1,13 +1,13 @@
 class Weather < ApplicationRecord
   belongs_to :user
 
-  ds_url = "https://api.darksky.net/forecast/"
-  secret_key = ENV['SECRET_KEY']
-
-  def get_weather
-    data =  RestClient.get("#{ds_url}#{secret_key}/#{lat},#{lng}?exclude=minutely,hourly,daily,alerts")
-    data
-  end
+  # ds_url = "https://api.darksky.net/forecast/"
+  # secret_key = ENV['SECRET_KEY']
+  #
+  # def get_weather
+  #   data =  RestClient.get("#{ds_url}#{secret_key}/#{lat},#{lng}?exclude=minutely,hourly,daily,alerts")
+  #   data
+  # end
 
   # RestClient.get('http://example.com/resource', headers={})
 

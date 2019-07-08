@@ -1,5 +1,5 @@
 class WeatherSerializer < ActiveModel::Serializer
-  attributes :id, :temp, :precip, :moon, :clouds
+  attributes :id, :temp, :icon, :summary
 
-  belongs_to :note
+  belongs_to :user
 end
