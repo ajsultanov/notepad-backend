@@ -7,7 +7,6 @@ class Api::V1::NotesController < ApplicationController
   end
 
   def create
-#    byebug
 
     @note = Note.new
     @note.title = params[:title]

@@ -1,5 +1,5 @@
 class Weather < ApplicationRecord
-  belongs_to :note
+  belongs_to :user
 
   ds_url = "https://api.darksky.net/forecast/"
   secret_key = ENV['SECRET_KEY']
@@ -46,6 +46,5 @@ end
 #     ModelForMyApi.getData
 #   end
 # end
-
 
 # in js: var jsonObj = #{@results};

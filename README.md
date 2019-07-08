@@ -20,8 +20,6 @@ sample API call:
 
 [https://api.darksky.net/forecast/b00a90bce6b38bb89a38fcf23e9cfe9c/37.8267,-122.4233]
 
-  - Liquid precipitation rate needed???
-
 ## Requests:
 key (required)
 latitutde (required)
@@ -46,9 +44,6 @@ X-Forecast-API-Calls  - The number of API requests made by the given API key for
 X-Response-Time       - The server-side response time of the request.
 
 **always** check for presence of data before using it
-
-## uh...hm..?
-The Forecast Data API supports HTTP compression. We heartily recommend using it, as it will make responses much smaller over the wire. To enable it, simply add an Accept-Encoding: gzip header to your request. (Most HTTP client libraries wrap this functionality for you, please consult your library’s documentation for details.)
 
 ## GEO
 

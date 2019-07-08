@@ -4,7 +4,7 @@ class CreateWeathers < ActiveRecord::Migration[5.2]
       t.integer :temp
       t.string :status
       t.string :icon
-      t.integer :note_id
+      t.integer :user_id
 
       t.timestamps
     end

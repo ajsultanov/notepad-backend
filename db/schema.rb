@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2019_07_06_193049) do
     t.integer "temp"
     t.string "status"
     t.string "icon"
-    t.integer "note_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
