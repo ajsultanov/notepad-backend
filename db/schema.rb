@@ -18,10 +18,6 @@ ActiveRecord::Schema.define(version: 2019_07_06_193049) do
   create_table "notes", force: :cascade do |t|
     t.text "content"
     t.string "title"
-    t.integer "time"
-    t.string "season"
-    t.float "lat"
-    t.float "lng"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,15 +26,16 @@ ActiveRecord::Schema.define(version: 2019_07_06_193049) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password"
+    t.float "lat"
+    t.float "lng"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "weathers", force: :cascade do |t|
     t.integer "temp"
-    t.string "precip"
-    t.string "moon"
-    t.string "clouds"
+    t.string "status"
+    t.string "icon"
     t.integer "note_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -7,6 +7,14 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
+
+#    @note.weather = create_weather(attributes = {})...
+
+    if @user = User.create(user_params)
+      render json: @user, status: :accepted
+    else
+      render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
+    end
   end
 
   def update
@@ -19,7 +27,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:id, :username, :password)
+    params.permit(:id, :username, :password, :time, :season, :lat, :lng)
   end
 
   def find_user

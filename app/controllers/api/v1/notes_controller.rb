@@ -10,15 +10,9 @@ class Api::V1::NotesController < ApplicationController
 #    byebug
 
     @note = Note.new
-    @note.title = note_params[:title]
-    @note.content = note_params[:content]
-    @note.time = note_params[:time]
-    @note.season = note_params[:season]
-    @note.user_id = note_params[:user_id]
-    @note.lat = note_params[:lat]
-    @note.lng = note_params[:lng]
-
-#    @note.weather = create_weather(attributes = {})...
+    @note.title = params[:title]
+    @note.content = params[:content]
+    @note.user_id = params[:user_id]
 
     if @note.save
       render json: @note, status: :accepted

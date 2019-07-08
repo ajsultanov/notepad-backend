@@ -9,4 +9,4 @@
 User.create(id: 1, username: "adam", password: "123")
 User.create(id: 2, username: "jed", password: "123")
 
-Note.create(id: 1, content: "yes this is a very nice note", title: "first note", time: 16, season: "summer", lat: 40.6821, lng: -73.9506, user_id: 1)
+Note.create(id: 1, content: "yes this is a very nice note", title: "first note", user_id: 1)
