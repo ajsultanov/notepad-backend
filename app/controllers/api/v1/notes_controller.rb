@@ -9,9 +9,9 @@ class Api::V1::NotesController < ApplicationController
   def create
 
     @note = Note.new
-    @note.title = params[:title]
-    @note.content = params[:content]
-    @note.user_id = params[:user_id]
+    @note.title = params[:noteData][:title]
+    @note.content = params[:noteData][:content]
+    @note.user_id = params[:noteData][:user_id]
 
     if @note.save
       render json: @note, status: :accepted
