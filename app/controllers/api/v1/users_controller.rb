@@ -14,13 +14,11 @@ class Api::V1::UsersController < ApplicationController
     @user.password = params[:password]
     @user.lat = params[:lat]
     @user.lng = params[:lng]
-    lat = @user.lat
-    lng = @user.lng
 
     ds_url = "https://api.darksky.net/forecast/"
     secret_key = ENV['SECRET_KEY']
 
-    raw = RestClient.get("#{ds_url}#{secret_key}/#{lat},#{lng}?exclude=minutely,hourly,daily,alerts")
+    raw = RestClient.get("#{ds_url}#{secret_key}/#{@user.lat},#{@user.lng}?exclude=minutely,hourly,daily,alerts")
     resp = JSON.parse(raw)
 
     if @user.save
@@ -37,6 +35,13 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
+
+    if @user.weather.update({:temp => resp["currently"]["temperature"], :icon => resp["currently"]["icon"], :summary => resp["currently"]["summary"]})
+      puts "yay saved"
+    else
+      puts "oh no"
+    end
+
   end
 
   def show
