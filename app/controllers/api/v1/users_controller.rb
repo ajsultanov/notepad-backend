@@ -28,11 +28,18 @@ class Api::V1::UsersController < ApplicationController
       raw = RestClient.get("#{ds_url}#{secret_key}/#{@user.lat},#{@user.lng}?exclude=minutely,hourly,daily,alerts")
       resp = JSON.parse(raw)
 
+      case resp["currently"]["icon"]
+      when "clear-day", "clear-night"
+        resp["currently"]["icon"] = "clear"
+      when "partly-cloudy-day", "partly-cloudy-night"
+        resp["currently"]["icon"] = "partlyCloudy"
+      end
+
       if @user.save
         if (@user.weather)
-          @user.weather.udpate({:temp => resp["currently"]["temperature"], :icon => resp["currently"]["icon"], :summary => resp["currently"]["summary"]})
+          @user.weather.update({:temp => resp["currently"]["temperature"], :icon => resp["currently"]["icon"], :summary => resp["currently"]["summary"]})
         else
-           @user.create_weather({:temp => resp["currently"]["temperature"], :icon => resp["currently"]["icon"], :summary => resp["currently"]["summary"]})
+          @user.create_weather({:temp => resp["currently"]["temperature"], :icon => resp["currently"]["icon"], :summary => resp["currently"]["summary"]})
         end
 
         render json: @user, status: :accepted

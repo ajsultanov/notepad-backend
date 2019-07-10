@@ -18,7 +18,7 @@ Things you may want to cover:
 
 sample API call:
 
-[https://api.darksky.net/forecast/b00a90bce6b38bb89a38fcf23e9cfe9c/37.8267,-122.4233]
+40.7048061, -74.0132754
 
 ## Requests:
 key (required)
