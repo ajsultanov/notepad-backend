@@ -3,7 +3,7 @@
 
 ### Notepad is a relaxing note-taking app that changes it's visual theme based on the time and weather.
 
-> TK ![notepad screenshot](./public/screenshot.jpeg "NOTEPAD")
+![notepad screenshot](./public/notepad.png "NOTEPAD")
 
 [Link to repository for the frontend](https://github.com/ajsultanov/notepad-frontend)
 
